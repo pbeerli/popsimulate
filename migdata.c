@@ -504,10 +504,23 @@ inputdata (void)
         siterates[ii] = (double*) calloc(1,sizeof(double)*sites[0]);
         fgets(input,1024,stdin); // reads # rate ... for locus x
 	while ( fgetc(stdin) != '#' );
-        for(i=0;i<sites[0];i++)
-        {
-            fscanf(stdin,"%lf ",&siterates[ii][i]);
-        }
+	char c = getc(stdin);
+	if (c!='=')
+	  {
+	    ungetc(c,stdin);
+	    for(i=0;i<sites[0];i++)
+	      {
+		fscanf(stdin,"%lf ",&siterates[ii][i]);
+	      }
+	  }
+	else
+	  {
+	    fgets(input,1023,stdin);//swallows the endofline
+	    for(i=0;i<sites[0];i++)
+	      {
+		siterates[ii][i]=1.0;
+	      }	    
+	  }
     }
     
     for (locus = 1; locus < loci; locus++) {

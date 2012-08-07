@@ -196,16 +196,18 @@ main (int argc, char *argv[])
 
       for(locus=0;locus<param->loci;locus++)
         {
-          fprintf (stdout, "# rate among sites for locus %li (%f)\n# ",locus,alpha);
+          fprintf (stdout, "# rate among sites for locus %li (%f)\n#",locus,alpha);
           for(i=0;i<param->sites[0];i++)
             {
               if(het)
                 {
-                  fprintf(stdout,"%f ",gengam(alpha,alpha));
+                  fprintf(stdout," %f",gengam(alpha,alpha));
                 }
               else
                 {
-                  fprintf(stdout,"1. ");
+		  //                  fprintf(stdout,"1. ");
+		  fprintf(stdout,"=");
+		  break;
                 }
             }
           fprintf(stdout,"\n");
@@ -459,7 +461,7 @@ initparam (param_fmt * param)
   while(tmp==' ')
     tmp = fgetc(stdin); // read blank
   //tmp is now something: this is not necessary tmp = fgetc(stdin); // read ??
-  param->withmig=FALSE;
+  param->withmig=TRUE;
   int locus;
   //  while(tmp!= '\0')
   while(tmp > 0)
