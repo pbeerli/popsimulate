@@ -12,7 +12,7 @@ and then look at gugus
 
 Here an example parmfile for the simlator
 I explain each line after #
-I ma not  sure if such a file would work if there are # in it so
+I am not  sure if such a file would work if there are # in it so
 
 #for sequences	
 S Nogamma          # {S: datatype [S, A, M = seq, allelic, microsat]} 
