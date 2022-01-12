@@ -965,8 +965,11 @@ printdata_seq (void)
           for (site = 0; site < sites[locus]; site++) {
               sum += polymorph[locus][site]>0;
           }
+	  thetaw=watterson(sum, indsum);
           fprintf(stderr,"\nLocus %li> %li variable sites out of %li (Theta_Watterson = %f, std=%f)\n",
-                  locus+1,sum,sites[locus], (thetaw=watterson(sum, indsum))/sites[locus], wattersonstd(thetaw,indsum)/sites[locus]);
+                  locus+1,sum,sites[locus],
+		  (thetaw)/sites[locus],
+		  wattersonstd(thetaw,indsum)/sites[locus]);
       }
       /*
       // print FST as 1 - Hw/Hb

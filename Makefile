@@ -34,8 +34,9 @@ all::
 #	$(MAKE) ranlib
 	$(MAKE) migtree
 	$(MAKE) migdata
-	$(MAKE) solexa
-	$(MAKE) solexadate
+
+#$(MAKE) solexa
+#$(MAKE) solexadate
 
 migtree::   
 	$(CC) -g migtree.c $(RANLIBFILES) -o migtree  -lm
