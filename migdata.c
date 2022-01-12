@@ -34,7 +34,7 @@ long bug;
 node *root;
 FILE *outfile;
 FILE *ancestor;
-FILE *datefile;
+//FILE *datefile;
 short ****data;
 long popnum;
 long *maxind;
@@ -319,7 +319,7 @@ main (int argc, char *argv[])
   loci = 1;
   maxnch = 10;
   openfile (&outfile, "infile", "w", argv[0], NULL);
-  openfile (&datefile, "datefile", "w", argv[0], NULL);
+  //openfile (&datefile, "datefile", "w", argv[0], NULL);
   inputdata ();
   maxsnips_per_locus=LONG_MAX;
   if(argc>1)
@@ -447,7 +447,7 @@ main (int argc, char *argv[])
   }
   printdata ();
   fclose (outfile);
-  fclose (datefile);
+  //fclose (datefile);
 
   if(type=='I')
     {
@@ -903,7 +903,7 @@ printdata_seq (void)
   long i, pop, locus, ind, site, sum, indsum=0;
   char ch=' ';
   fprintf (outfile, "   %li %li\n", popnum, loci);
-  fprintf (datefile, "   %li %li\n", popnum, loci);
+  //fprintf (datefile, "   %li %li\n", popnum, loci);
   for (locus = 0; locus < loci; locus++) {
     fprintf (outfile, "%li ", sites[locus]);
   }
@@ -914,11 +914,11 @@ printdata_seq (void)
       pop = popseq[i];
       indsum += maxind[pop];
       fprintf (outfile, "%-3li  %s%3li\n", maxind[pop], swiss[pop], pop);
-      fprintf (datefile, "%-3li  %s%3li\n", maxind[pop], swiss[pop], pop);
+      //fprintf (datefile, "%-3li  %s%3li\n", maxind[pop], swiss[pop], pop);
       for (locus = 0; locus < loci; locus++) {
           for (ind = 0; ind < maxind[pop]; ind++) {
               fprintf (outfile, "%-10.10s", names[pop][ind]);
-              fprintf (datefile, "%-10.10s", names[pop][ind]);
+              //fprintf (datefile, "%-10.10s", names[pop][ind]);
               for (site = 0; site < sites[locus]; site++) {
                   if(type=='I' && polymorph[locus][site]==0 && !fullout)
                   {
@@ -953,7 +953,7 @@ printdata_seq (void)
 #else
               fprintf (outfile, "\n");
 #endif
-              fprintf (datefile, "%f\n", ages[pop][ind]);
+              //fprintf (datefile, "%f\n", ages[pop][ind]);
           }
 	  fprintf(outfile,"#\n");
       }

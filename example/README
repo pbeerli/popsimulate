@@ -1,0 +1,9 @@
+Create a sequence dataset using:
+
+../migtree < parmfile.sequence | ../migdata
+
+
+Create a microsatellite dataset using:
+
+../migtree < parmfile.msat | ../migdata
+

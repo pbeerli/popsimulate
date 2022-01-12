@@ -1,23 +1,24 @@
 To generate simulated datasets do this:
-
-migtree < parmfile.stepstone | migdata 
+[check out the example directory]
+migtree < parmfile.sequence | migdata 
 
 it will print some auxillary stuff to the screen but will 
 produce a file called infile with the sequences in it.
 
 migdata is not interactive and gets all its stuff through the migtree
 output what that is you can check by doing
-migtree < parmfile.stepstone > gugus
-and then look at gugus
+migtree < parmfile.stepstone > trees
+and then look at trees
 
-Here an example parmfile for the simlator
+Here an example parmfile for the simulator
 I explain each line after #
-I am not  sure if such a file would work if there are # in it so
+the parmfile for the simulator cannot contain any comment!
 
 #for sequences	
-S Nogamma          # {S: datatype [S, A, M = seq, allelic, microsat]} 
+S Nogamma 1.0      # {S: datatype [S, A, M = seq, allelic, microsat]} 
                    # {Nogamma:  site mutation rate is NOT gamma deviated}
                    # { if you want to use Gamma let me know [->more explan}
+		   # the 1.0 is for future development, 1.0=coalescent
 4 3 9839017        # number_of_populations number_of_loci random_number_seed
                    # the random number seed should be of the type 4n+1
  10 10 10 10       # sample size for each population
@@ -31,9 +32,10 @@ S Nogamma          # {S: datatype [S, A, M = seq, allelic, microsat]}
 1000 2.0           # number_of_sites t/t_ratio
 
 #for  microsatellites
-M Nogamma          # {S: datatype [S, A, M = seq, allelic, microsat]} 
+M Nogamma 1.0      # {S: datatype [S, A, M = seq, allelic, microsat]} 
                    # {Nogamma:  site mutation rate is NOT gamma deviated}
                    # { if you want to use Gamma let me know [->more explan}
+		   # the 1.0 is for future development: 1.0 = coalescent
 4 3 983 901 7      # number_of_populations number_of_loci random_number_seed1 2 3
                    # the random number seed should be of the type 4n+1
  10 10 10 10       # sample size for each population
